@@ -17,7 +17,7 @@ set_random_seed(RANDOM_SEED)
 consumption_train = pd.read_csv('consumption_train.csv', 
                                 index_col=0, parse_dates=['timestamp'])
 #choose subset of series for training
-frac_series_to_use = 1
+frac_series_to_use = 0.75
 
 rng = np.random.RandomState(seed=RANDOM_SEED)
 series_ids = consumption_train.series_id.unique()
