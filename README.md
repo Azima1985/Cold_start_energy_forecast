@@ -9,3 +9,12 @@ Building energy forecasting has gained momentum with the increase of building en
 Usually, forecasting algorithms use historical information to compute their forecast. Most of the time, the bigger the historic dataset, the more accurate the forecast. This requirement presents a big challenge: how can we make accurate predictions for new buildings, which don't have a long consumption history?
 
 The goal of this challenge is to build an algorithm which provides an accurate forecast from the very start of a building's instrumentation.
+
+Available Data:
+Datasets for 758 buildings including hourly energy consumption for 28 days (672 time steps).
+
+Goal:
+Predict energy consumption trends for buildings with little historical data available (1 day - 2 weeks of data).
+
+Method:
+Implement Reptile meta learning.
