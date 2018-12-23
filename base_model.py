@@ -168,31 +168,4 @@ my_submission = submission_format.copy()
 num_test_series = my_submission.series_id.nunique()
 
 model1.reset_states()
-
-
-'''for ser_id, pred_df in tqdm(my_submission.groupby('series_id'), 
-                            total=num_test_series, 
-                            desc="Forecasting from Cold Start Data"):
-        
-    # get info about this series' prediction window
-    pred_window = pred_df.prediction_window.unique()[0]
-    num_preds = pred_window_to_num_preds[pred_window]
-    num_pred_hours = pred_window_to_num_pred_hours[pred_window]
-    
-    # prepare cold start data
-    series_data = cold_start_test[cold_start_test.series_id == ser_id].consumption
-    cold_X, cold_y, scaler = prepare_training_data(series_data, lag)
-    
-    # fine tune our lstm model to this site using cold start data    
-    model1.fit(cold_X, cold_y, epochs=2, batch_size=batch_size, verbose=0, shuffle=False)
-    
-    # make hourly forecasts for duration of pred window
-    preds = generate_hourly_forecast(num_pred_hours, series_data, model1, scaler, lag)
-    
-    # reduce by taking sum over each sub window in pred window
-    reduced_preds = [pred.sum() for pred in np.split(preds, num_preds)]
-    
-    # store result in submission DataFrame
-    ser_id_mask = my_submission.series_id == ser_id
-    my_submission.loc[ser_id_mask, 'consumption'] = reduced_preds'''
     
